@@ -1,0 +1,19 @@
+#sqlserver begin
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=WN_BASE
+    username: sa
+    password: 123
+    maxActive: 20
+    maxWait: 60000
+#sqlserver end
+
+# 端口设置
+server:  port: 8080
+# 端口设置 end
+
+# mybatis-plus begin
+mybatis-plus:  mapper-locations:  - classpath:com/winner/springbootmybatisplus/mapper/xml/*.xml
+  type-aliases-package: com.winner.springbootmybatisplus.entity
+# mybatis-plus end
