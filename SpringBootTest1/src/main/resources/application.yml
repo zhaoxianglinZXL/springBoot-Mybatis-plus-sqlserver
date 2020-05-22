@@ -17,3 +17,6 @@ server:  port: 8080
 mybatis-plus:  mapper-locations:  - classpath:com/winner/springbootmybatisplus/mapper/xml/*.xml
   type-aliases-package: com.winner.springbootmybatisplus.entity
 # mybatis-plus end
+
+# 控制台打印sql语句  configuration:    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 控制台打印sql语句
