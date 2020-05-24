@@ -28,7 +28,7 @@ public class BaseUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "BU00")
-    private Double bu00;
+    private Integer bu00;
 
     /**
      * 难搞

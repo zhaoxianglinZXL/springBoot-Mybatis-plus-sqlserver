@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
 
 @SpringBootApplication
+@Configuration
 @MapperScan("com.winner.mytabisplus.mapper")
 public class SpringBootStart {
 

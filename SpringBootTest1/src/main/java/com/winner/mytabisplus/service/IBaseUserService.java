@@ -20,4 +20,9 @@ public interface IBaseUserService extends IService<BaseUser> {
 	int saveUser(BaseUser baseUser);
 	
 	IPage<BaseUser> queryBaseUserByPage();
+
+	BaseUser queryBaseUserByWrapper(BaseUser uesr);
+	
+	// 使用自定义sql查询
+	BaseUser queryByCustomerSql();
 }
