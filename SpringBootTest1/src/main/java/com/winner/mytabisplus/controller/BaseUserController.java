@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,9 @@ import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.winner.mytabisplus.entity.BaseUser;
 import com.winner.mytabisplus.service.IBaseUserService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.java.Log;
 
 /**
@@ -33,6 +37,7 @@ import lombok.extern.java.Log;
  * @author jobob
  * @since 2020-05-22
  */
+@Api(description = "用户操作接口")
 @RestController
 @RequestMapping("base-user")
 public class BaseUserController {
@@ -50,7 +55,8 @@ public class BaseUserController {
 		log.debug("进入到MYBATIS-PLUS 单表单条数据保存");
 		int result = baseUserService.saveUser(bu);
 		if ( result == 0 ) { 
-			return ResponseEntity.notFound().build(); }
+			return ResponseEntity.notFound().build(); 
+		}
 		else { 
 			return ResponseEntity.ok(result);
 		}
@@ -75,8 +81,13 @@ public class BaseUserController {
 		return ResponseEntity.ok("123");
 	}
 	
+	// 方法名
+	@ApiOperation(value = "获取otp", notes="通过手机号获取OTP验证码")
+	// 参数
+	@ApiImplicitParam(name = "telephone", value = "电话号码", paramType = "query", required = false)
 	@GetMapping("selectcustomersql")
-	public ResponseEntity<String> selectCustomerSql() {
+	public ResponseEntity<String> selectCustomerSql(@Param("telephone")String telephone) {
+		System.out.println("电话好嘛"+telephone);
 		BaseUser bu = baseUserService.queryByCustomerSql();
 		return ResponseEntity.ok("成功操作");
 	}

@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Configuration;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2 // swagger 访问路径 http://localhost:8080/swagger-ui.html
 @SpringBootApplication
 @Configuration
-@MapperScan("com.winner.mytabisplus.mapper")
+@MapperScan({"com.winner.mytabisplus.mapper","com.winner.mytabisplus.config"})
 public class SpringBootStart {
 
 	private static final Logger log = LoggerFactory.getLogger(SpringBootStart.class);
